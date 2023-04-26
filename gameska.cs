@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace gameska
         {
             int l = 0;
             List<string> inventory = new List<string>();
-
+            int end = 0;
 
 
 
@@ -28,7 +29,7 @@ namespace gameska
             {
                 Console.WriteLine(Environment.NewLine);
             }
-            Console.WriteLine("You have woken up in a strange house, its very dark..." + Environment.NewLine + "you see a few doors and a staircase...");
+            Console.WriteLine("You have woken up in a strange house, its very dark..." + Environment.NewLine + "you see 4 doors, one of them is missing a handle and a staircase...");
             Console.WriteLine("1. You go in the left door");
             Console.WriteLine("2. You go in the right door");
             Console.WriteLine("3. You go up the stairs");
@@ -52,52 +53,97 @@ namespace gameska
 
 
                     case "2":
-                        Console.WriteLine("You went through, but its getting draker...");
-                        Console.WriteLine(Environment.NewLine + Environment.NewLine + Environment.NewLine + "You realize you are in the kitchen...");
-                        Console.WriteLine("After a while of trying to get a hold of what the room looks like your hand touches a knife, do you want to take it with you or rather just leave it there");
-                        Console.WriteLine("1. Take the knife" + Environment.NewLine + "2. leave it there");
-                        vstup = Console.ReadLine();
+                        Console.WriteLine("You went through, but is dark...");
+                        Console.WriteLine(Environment.NewLine + Environment.NewLine + Environment.NewLine + "You realize you are in the kitchen");
                         
 
-                        if (vstup == "I")
-                        {
-                            Console.WriteLine("These are the items in your inventory:");
-                            foreach (string s in inventory)
-                            {
-                                Console.WriteLine(s);
-                                
-                            }
-
-                        }
                         
-                        
-                        if (vstup == "1")
-                        {
-                        //přidání nože do inventáře
-                        inventory.Add("knife");
-                        }
-                        Console.WriteLine("you left the knife behind" + Environment.NewLine + Environment.NewLine + Environment.NewLine);
-                        Console.WriteLine("After some more time of looking, you found the curtains." + Environment.NewLine + "You found a boarded up window, you were able to remove a few of the boards..." + Environment.NewLine + "You can see a bit better now, now you can see a passage to what looks like a living room" + Environment.NewLine + "You can either try to escape through a window, or go deeper into the living room");
+                        Console.WriteLine("After some more time of looking around, you found the curtains." + Environment.NewLine + "You found a boarded up window, you were able to remove a few of the boards..." + Environment.NewLine + "You can see a bit better now, now you can see a passage to what looks like a living room" + Environment.NewLine + "You can either try to escape through a window, or go deeper into the living room");
                         Console.WriteLine("1. Go in the living room" + Environment.NewLine + "2. Try to escape through the window");
-                        Console.ReadKey();
+                        vstup = Console.ReadLine();
 
                             switch (vstup)
                             {
                                 case "1":
-                                    Console.WriteLine("You went into the living room, theres a ");
+                                    Console.WriteLine("You went into the living room, theres an armchair and an old TV" + Environment.NewLine + "Do you want to sit down or continue going forward");
+                                    Console.WriteLine("1. Sit Down" + Environment.NewLine + "2. keep going");
+                                    vstup = Console.ReadLine();
+                                    switch(vstup)
+                                    {
+                                    case "1":
+                                        Console.WriteLine("Right after you sat down, the chair locked you in so you can`t move, the tv turned on...");
+                                        Console.WriteLine("You are stuck there forever watching TV");
+                                        end = 3;
+                                        l++;
+                                        break;
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    case "2":
+                                        Console.WriteLine("You found a door that leads to outside..." + Environment.NewLine + "Now you're outside, but you still have to make your way through the forest");
+                                        Console.WriteLine("You see two paths, whitch one are you going to choose..." + Environment.NewLine + "1. Left" + Environment.NewLine + "2. Right");
+                                        vstup= Console.ReadLine();
+                                        switch(vstup)
+                                        {
+                                            case "1":
+                                                Console.WriteLine("Yow walk for a while and you see the path splits into 4 more" + Environment.NewLine + "1. Very left" + Environment.NewLine + "2. Center left" + Environment.NewLine + "3. Center right" + Environment.NewLine + "4. Very right");
+                                                vstup = Console.ReadLine();
+                                                
+                                                        Console.WriteLine("the path just keeps splitting and you are getting nowhere..." + Environment.NewLine + "You're lost...");
+
+                                           break;
+
+
+
+                                                
+                                            
+                                            case "2":
+                                                Console.WriteLine("You walk for a long time, the house must've been in the middle of the forrest, you get hella tired" + Environment.NewLine + "1. Find a place to lay down and wait till morning" + Environment.NewLine + "2. keep going");
+                                                vstup = Console.ReadLine();
+                                                switch(vstup)
+                                                {
+                                                    case "1":
+                                                        Console.WriteLine("You found a nice patch of grass, it looks comfortable, so you lay down..." + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine);
+                                                        Console.WriteLine("You wake up, but its still dark..." + Environment.NewLine + "You are inside what feels like a wooden box..." + Environment.NewLine + "YOU WERE BURRIED ALIVE");
+                                                        end =4;
+                                                        break;
+                                                    
+                                                    
+                                                    
+                                                    case "2":
+                                                        Console.WriteLine("You've been walking a long time, you can't see much so you climb a tree..." + Environment.NewLine + "What's that in the distance..." + Environment.NewLine + "You see light, it looks like a city, so you climb down and walk towards it..." + Environment.NewLine + "You were right, its a city, you found help and escaped safely");
+                                                        end=5;
+                                                        break;
+                                                }
+
+                                                
+                                                
+                                                break;
+                                        }
+                                        
+                                        
+                                        
+                                        
+                                        break;
+                                    }
                                     break;
+                                
+                            
+                            
+                            
+                            
                                 case "2":
                                     Console.WriteLine("After some struggle you finally squeezed in between the boards in the window, although after getting out, a tall black figure killed you");
+                                    end = 2;
                                     l++;
                                     break;
-                                case "I":
-                                    Console.WriteLine("These are the items in your inventory:");
-                                    foreach (string s in inventory)
-                                    {
-                                        Console.WriteLine(s);
-
-                                    }
-                                break;
+                                
 
                                 
                             }
@@ -109,7 +155,7 @@ namespace gameska
 
 
                     case "3":
-                        Console.WriteLine("Even though it looked like the stairs were about to fall, you carefully clibed up");
+                        Console.WriteLine("You went up the stairs");
                         break;
 
 
@@ -118,24 +164,43 @@ namespace gameska
 
                     case "4":
                         Console.WriteLine("There was a hole in the floor, you tried jumping over it, but fell to the basement");
+                        Console.WriteLine("You found a flashlight, you look around..." + Environment.NewLine + "it looks like a torture chamber, you should get out as soon as possible");
                         break;
 
 
 
 
 
-                    case "I":
-                        Console.WriteLine("These are the items in your inventory:");
-                        foreach (string s in inventory)
-                        {
-                            Console.WriteLine(s);
-                        }
-                        break;
+                    
 
                 }
             }
 
-
+            
+            
+            
+            
+            
+            
+            Console.WriteLine(Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine);
+            switch (end)
+            {
+                case 3:
+                    Console.WriteLine("ENDING 3: YOU STAY STUCK TO THE TV FOREVER");
+                    break;
+                case 2:
+                    Console.WriteLine("ENDING 2: YOU GOT KILLED BY A TALL BLACK FIGURE");
+                    break;
+                case 1:
+                    Console.WriteLine("ENDING 1: YOU GOT IMPALED BY THE SPIKES");
+                    break;
+                case 4:
+                    Console.WriteLine("ENDING 4: YOU GOT BURRIED ALIVE AND DIED DUE TO LACK OF AIR");
+                    break;
+                case 5:
+                    Console.WriteLine("ENDING 5: YOU ESCAPED AND FOUND HELP IN A NEARBY CITY");
+                    break;
+            }
 
 
 
