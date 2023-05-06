@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,17 +19,17 @@ namespace gameska
         {
             int l = 0;
             List<string> inventory = new List<string>();
-            int end = 0;
+            
 
 
 
             Console.WriteLine("Welcome to the game, read the commands and press any key to start the game");
-            Console.WriteLine("COMMANDS AND RULES:" + Environment.NewLine + "you have an invenory, type I to open it at any time" + Environment.NewLine + "you will have several options, press the number according to the option you have chosen");
             Console.ReadKey();
             for (int i = 0; i < 20; i++)
             {
                 Console.WriteLine(Environment.NewLine);
             }
+            //první výběr možností
             Console.WriteLine("You have woken up in a strange house, its very dark..." + Environment.NewLine + "you see 4 doors, one of them is missing a handle and a staircase...");
             Console.WriteLine("1. You go in the left door");
             Console.WriteLine("2. You go in the right door");
@@ -43,6 +44,7 @@ namespace gameska
                 string vstup = Console.ReadLine();
                 switch (vstup)
                 {
+                    //cesta doleva
                     case "1":
                         Console.WriteLine("Behind the door were spring loaded spikes, YOU DIED!");
                         l++;
@@ -51,7 +53,7 @@ namespace gameska
 
 
 
-
+                    //cesta doprava
                     case "2":
                         Console.WriteLine("You went through, but is dark...");
                         Console.WriteLine(Environment.NewLine + Environment.NewLine + Environment.NewLine + "You realize you are in the kitchen");
@@ -73,7 +75,6 @@ namespace gameska
                                     case "1":
                                         Console.WriteLine("Right after you sat down, the chair locked you in so you can`t move, the tv turned on...");
                                         Console.WriteLine("You are stuck there forever watching TV");
-                                        end = 3;
                                         l++;
                                         break;
                                     
@@ -94,9 +95,9 @@ namespace gameska
                                             case "1":
                                                 Console.WriteLine("Yow walk for a while and you see the path splits into 4 more" + Environment.NewLine + "1. Very left" + Environment.NewLine + "2. Center left" + Environment.NewLine + "3. Center right" + Environment.NewLine + "4. Very right");
                                                 vstup = Console.ReadLine();
-                                                
+                                                            
                                                         Console.WriteLine("the path just keeps splitting and you are getting nowhere..." + Environment.NewLine + "You're lost...");
-
+                                                l++;
                                            break;
 
 
@@ -110,15 +111,15 @@ namespace gameska
                                                 {
                                                     case "1":
                                                         Console.WriteLine("You found a nice patch of grass, it looks comfortable, so you lay down..." + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine);
-                                                        Console.WriteLine("You wake up, but its still dark..." + Environment.NewLine + "You are inside what feels like a wooden box..." + Environment.NewLine + "YOU WERE BURRIED ALIVE");
-                                                        end =4;
+                                                        Console.WriteLine("You wake up, but its still dark..." + Environment.NewLine + "You are inside of a wooden box..." + Environment.NewLine + "YOU WERE BURRIED ALIVE");
+                                                        l++;
                                                         break;
                                                     
                                                     
                                                     
                                                     case "2":
                                                         Console.WriteLine("You've been walking a long time, you can't see much so you climb a tree..." + Environment.NewLine + "What's that in the distance..." + Environment.NewLine + "You see light, it looks like a city, so you climb down and walk towards it..." + Environment.NewLine + "You were right, its a city, you found help and escaped safely");
-                                                        end=5;
+                                                        l++;
                                                         break;
                                                 }
 
@@ -140,7 +141,6 @@ namespace gameska
                             
                                 case "2":
                                     Console.WriteLine("After some struggle you finally squeezed in between the boards in the window, although after getting out, a tall black figure killed you");
-                                    end = 2;
                                     l++;
                                     break;
                                 
@@ -153,18 +153,41 @@ namespace gameska
 
 
 
-
+                    //cesta po schodech 
                     case "3":
                         Console.WriteLine("You went up the stairs");
+
+
+                        Console.WriteLine("there are 4 doors" + Environment.NewLine + "1. First door" + Environment.NewLine + "2. second door" + Environment.NewLine + "3. third door" + Environment.NewLine + "4. Fourth door");
+                        vstup=Console.ReadLine();
+                        switch (vstup)
+                        {
+                            case "1":
+                                Console.WriteLine("The door leads to a bathroom..." + Environment.NewLine + " the sink starts filling up wwith blood..." + Environment.NewLine + "You try to leave through the door but its locked" + Environment.NewLine + "after some time the whole room fills up with blood an you drown...");
+                                l++;
+                                break;
+                            case "2":
+                                Console.WriteLine("The second door leads to a bedroom..." + Environment.NewLine + "There was someone sleeping on the bed, but by walking in, you woke them up" + Environment.NewLine + " They got mad and killed you");
+                                l++;
+                                break;
+                            case "3":
+                                Console.WriteLine("In the third door there was a portal..." + Environment.NewLine + "Someone pushed you into it..." + Environment.NewLine + "After you fell into the portal, you woke up in your bed... It was all a dream");
+                                l++;
+                                break;
+                            case "4":
+                                Console.WriteLine("Behind the fourth door, there is an empty bedroom..." + Environment.NewLine + "Suddnely, you get very tired and you have no other choice than to lay down on the bed..." + Environment.NewLine + "You never wake up...");
+                                l++;
+                                break;
+                        }
                         break;
 
 
 
 
-
+                    //cesta rovně
                     case "4":
                         Console.WriteLine("There was a hole in the floor, you tried jumping over it, but fell to the basement");
-                        Console.WriteLine("You found a flashlight, you look around..." + Environment.NewLine + "it looks like a torture chamber, you should get out as soon as possible");
+                        Console.WriteLine("");
                         break;
 
 
@@ -183,24 +206,8 @@ namespace gameska
             
             
             Console.WriteLine(Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine);
-            switch (end)
-            {
-                case 3:
-                    Console.WriteLine("ENDING 3: YOU STAY STUCK TO THE TV FOREVER");
-                    break;
-                case 2:
-                    Console.WriteLine("ENDING 2: YOU GOT KILLED BY A TALL BLACK FIGURE");
-                    break;
-                case 1:
-                    Console.WriteLine("ENDING 1: YOU GOT IMPALED BY THE SPIKES");
-                    break;
-                case 4:
-                    Console.WriteLine("ENDING 4: YOU GOT BURRIED ALIVE AND DIED DUE TO LACK OF AIR");
-                    break;
-                case 5:
-                    Console.WriteLine("ENDING 5: YOU ESCAPED AND FOUND HELP IN A NEARBY CITY");
-                    break;
-            }
+            
+
 
 
 
