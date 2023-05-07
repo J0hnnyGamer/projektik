@@ -29,18 +29,21 @@ namespace gameska
             {
                 Console.WriteLine(Environment.NewLine);
             }
-            //první výběr možností
-            Console.WriteLine("You have woken up in a strange house, its very dark..." + Environment.NewLine + "you see 4 doors, one of them is missing a handle and a staircase...");
-            Console.WriteLine("1. You go in the left door");
-            Console.WriteLine("2. You go in the right door");
-            Console.WriteLine("3. You go up the stairs");
-            Console.WriteLine("4. You go in the door thats infront of you");
-            Console.WriteLine(Environment.NewLine + "Which one of these do you choose");
-
+            
+            
 
 
             while (l < 1)
             {
+                //první výběr možností
+                Console.WriteLine("You have woken up in a strange house, its very dark..." + Environment.NewLine + "you see 4 doors, one of them is missing a handle and a staircase...");
+                Console.WriteLine("1. You go in the left door");
+                Console.WriteLine("2. You go in the right door");
+                Console.WriteLine("3. You go up the stairs");
+                Console.WriteLine("4. You go in the door thats infront of you");
+                Console.WriteLine(Environment.NewLine + "Which one of these do you choose");
+
+
                 string vstup = Console.ReadLine();
                 switch (vstup)
                 {
@@ -128,9 +131,7 @@ namespace gameska
                                                 break;
                                         }
                                         
-                                        
-                                        
-                                        
+                                                                   
                                         break;
                                     }
                                     break;
@@ -187,7 +188,9 @@ namespace gameska
                     //cesta rovně
                     case "4":
                         Console.WriteLine("There was a hole in the floor, you tried jumping over it, but fell to the basement");
-                        Console.WriteLine("");
+                        Console.WriteLine("Theres only one door you can go through...");
+                        Console.WriteLine("It leads back to the start...");
+                        Console.WriteLine(Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine +  Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine  );
                         break;
 
 
@@ -214,29 +217,6 @@ namespace gameska
             Console.ReadKey();
 
         }
-        public static bool Mcka(string vstup)
-        {
-            switch (vstup)
-            {
-                case "1":
-                    Console.WriteLine("");
-                    break;
-                case "2":
-                    Console.WriteLine("");
-                    break;
-                case "3":
-                    Console.WriteLine("");
-                    break;
-                case"4":
-                    Console.WriteLine("");
-                    break;
-            }
-            
-            
-            
-            
-            
-            return true;
-        }
+        
     }
 }
