@@ -18,12 +18,12 @@ namespace gameska
         static void Main(string[] args)
         {
             int l = 0;
-            List<string> inventory = new List<string>();
+            
             
 
 
 
-            Console.WriteLine("Welcome to the game, read the commands and press any key to start the game");
+            Console.WriteLine("Welcome to the game, press any key to start the game");
             Console.ReadKey();
             for (int i = 0; i < 20; i++)
             {
@@ -36,7 +36,7 @@ namespace gameska
             while (l < 1)
             {
                 //první výběr možností
-                Console.WriteLine("You have woken up in a strange house, its very dark..." + Environment.NewLine + "you see 4 doors, one of them is missing a handle and a staircase...");
+                Console.WriteLine("You have woken up in a strange house, its very dark..." + Environment.NewLine + "you see 3 doors and a staircase...");
                 Console.WriteLine("1. You go in the left door");
                 Console.WriteLine("2. You go in the right door");
                 Console.WriteLine("3. You go up the stairs");
