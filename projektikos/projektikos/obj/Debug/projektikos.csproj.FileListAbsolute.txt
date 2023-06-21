@@ -1,0 +1,8 @@
+C:\Users\prova\source\repos\projektikos\projektikos\bin\Debug\projektikos.exe.config
+C:\Users\prova\source\repos\projektikos\projektikos\bin\Debug\projektikos.exe
+C:\Users\prova\source\repos\projektikos\projektikos\bin\Debug\projektikos.pdb
+C:\Users\prova\source\repos\projektikos\projektikos\obj\Debug\projektikos.csproj.AssemblyReference.cache
+C:\Users\prova\source\repos\projektikos\projektikos\obj\Debug\projektikos.csproj.SuggestedBindingRedirects.cache
+C:\Users\prova\source\repos\projektikos\projektikos\obj\Debug\projektikos.csproj.CoreCompileInputs.cache
+C:\Users\prova\source\repos\projektikos\projektikos\obj\Debug\projektikos.exe
+C:\Users\prova\source\repos\projektikos\projektikos\obj\Debug\projektikos.pdb
